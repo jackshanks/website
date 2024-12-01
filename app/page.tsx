@@ -4,16 +4,8 @@ import {
   Linkedin,
   Mail,
   ExternalLink,
-  Terminal,
   Code2,
-  Database,
-  Cloud,
-  Cpu,
-  MonitorSmartphone,
-  Server,
   Wrench,
-  Globe,
-  Boxes
 } from 'lucide-react';
 
 const Portfolio = () => {
