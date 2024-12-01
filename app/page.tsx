@@ -46,7 +46,8 @@ const Portfolio = () => {
         {/* Navigation */}
         <nav className="fixed top-0 w-full bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-800">
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <span
+              className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
             Portfolio
           </span>
             <div className="flex items-center gap-4">
@@ -54,43 +55,53 @@ const Portfolio = () => {
                  target="_blank"
                  rel="noopener noreferrer"
                  className="p-2 hover:text-purple-400 transition-colors">
-                <Github size={20} />
+                <Github size={20}/>
               </a>
               <a href="https://linkedin.com/in/jack-shanks-83a877204"
                  target="_blank"
                  rel="noopener noreferrer"
                  className="p-2 hover:text-purple-400 transition-colors">
-                <Linkedin size={20} />
+                <Linkedin size={20}/>
               </a>
             </div>
           </div>
         </nav>
 
         {/* Hero Section with Terminal Effect */}
-        <header className="pt-24 pb-16 px-6">
+        <header className="bg-gradient-to-b from-slate-900 to-slate-800 pt-24 pb-16 px-6">
           <div className="container mx-auto max-w-4xl">
-            <div className="mb-8 font-mono">
-              <div className="text-green-400">$ whoami</div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <div className="mb-12">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Jack Shanks
               </h1>
-              <div className="text-green-400">$ current_status</div>
-              <p className="text-xl text-gray-300 mb-6">
-                BSc Computer Science student | Developer
-              </p>
-              <div className="text-green-400">$ location</div>
-              <p className="text-gray-300 mb-6">
-                Hull | East Yorkshire | United Kingdom
-              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full"></span>
+                  <p className="text-xl text-slate-200">
+                    BSc Computer Science Student & Developer
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                  <p className="text-slate-300">
+                    Hull, East Yorkshire, United Kingdom
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="flex gap-4">
-              <a href="mailto:jacklshanks@gmail.com"
-                 className="px-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors flex items-center gap-2">
-                <Mail size={20} />
-                Contact Me
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                  href="mailto:jacklshanks@gmail.com"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors duration-200"
+              >
+                <Mail size={20}/>
+                <span>Contact Me</span>
               </a>
-              <a href="#projects"
-                 className="px-6 py-3 border border-purple-600 rounded-lg hover:bg-purple-900/20 transition-colors">
+              <a
+                  href="#projects"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-slate-600 text-white rounded-lg hover:bg-slate-700 transition-colors duration-200"
+              >
                 View Projects
               </a>
             </div>
@@ -162,13 +173,13 @@ const Portfolio = () => {
                     <div className="flex gap-4">
                       <a href={project.links.github}
                          className="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition-colors">
-                        <Github size={20} />
+                        <Github size={20}/>
                         View Code
                       </a>
                       {project.links.live && (
                           <a href={project.links.live}
                              className="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition-colors">
-                            <ExternalLink size={20} />
+                            <ExternalLink size={20}/>
                             Live Demo
                           </a>
                       )}
@@ -186,18 +197,18 @@ const Portfolio = () => {
               Let's Connect
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              I'm currently looking for new opportunities. Whether you have a question or just want to say hi,
-              I'll get back to you!
+              I am currently looking for new opportunities. Whether you have a question or just want to say hi,
+              I will get back to you!
             </p>
             <div className="flex justify-center gap-6">
               <a href="mailto:jacklshanks@gmail.com"
                  className="flex items-center gap-2 px-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors">
-                <Mail size={20} />
+                <Mail size={20}/>
                 Email Me
               </a>
               <a href="https://linkedin.com/in/yourusername"
                  className="flex items-center gap-2 px-6 py-3 border border-purple-600 rounded-lg hover:bg-purple-900/20 transition-colors">
-                <Linkedin size={20} />
+                <Linkedin size={20}/>
                 LinkedIn
               </a>
             </div>
