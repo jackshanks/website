@@ -1,22 +1,27 @@
-import React from "react";
-import { ProjectCard } from "../components/ProjectCard";
-import { projects } from "../data/Projects";
+import React, { forwardRef } from "react";
+import { projects } from "../lib/data";
+import { ProjectCard } from "@/app/components";
 
-const Projects = () => {
-  return (
-    <section id="projects" className="py-16 px-6">
-      <div className="container mx-auto max-w-4xl">
-        <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-          Featured Projects
-        </h2>
-        <div className="space-y-8">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+export const Projects = forwardRef<HTMLElement>((props, ref) => {
+    return (
+        <section ref={ref} className="relative py-24 px-6">
+            <div className="container mx-auto max-w-6xl">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              Featured Projects
+            </span>
+                    </h2>
+                </div>
 
-export { Projects, Projects as default };
+                <div className="space-y-8">
+                    {projects.map((project, index) => (
+                        <ProjectCard key={index} project={project} />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+});
+
+Projects.displayName = "Projects";
