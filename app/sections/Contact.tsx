@@ -24,7 +24,7 @@ export const Contact = forwardRef<HTMLElement>((props, ref) => {
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
-                                href="mailto:jacklshanks.gmail"
+                                href="mailto:jacklshanks@gmail.com"
                                 className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-semibold hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105"
                             >
                 <span className="flex items-center justify-center gap-2">

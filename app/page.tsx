@@ -76,7 +76,7 @@ export default function Page() {
             window.removeEventListener("scroll", handleScroll);
             window.removeEventListener("mousemove", handleMouseMove);
         };
-    }, [sectionRefs]);
+    }, []);
 
     const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
         ref.current?.scrollIntoView({ behavior: "smooth" });
