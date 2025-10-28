@@ -14,10 +14,13 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+html, body {
+    color: var(--foreground);
+    background: var(--background);
+    overflow-y: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 @keyframes gradient {
@@ -33,4 +36,10 @@ body {
 .animate-gradient {
     background-size: 200% auto;
     animation: gradient 3s ease infinite;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
