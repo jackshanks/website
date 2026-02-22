@@ -1,21 +1,30 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Press_Start_2P } from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const pressStart2P = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-pixel",
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio Page",
-  description: "Created by Jack Shanks",
+  title: "Jack Shanks - Pirate Portfolio",
+  description: "Set sail through Jack Shanks' interactive pirate-themed portfolio. Full-Stack Developer specializing in microservices and AI.",
+  keywords: ["Jack Shanks", "Full-Stack Developer", "Portfolio", "React", "Next.js", "TypeScript", "AI", "Microservices"],
+  authors: [{ name: "Jack Shanks" }],
+  openGraph: {
+    title: "Jack Shanks - Pirate Portfolio",
+    description: "Set sail through Jack Shanks' interactive pirate-themed portfolio. Full-Stack Developer specializing in microservices and AI.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Jack Shanks Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jack Shanks - Pirate Portfolio",
+    description: "Set sail through Jack Shanks' interactive pirate-themed portfolio.",
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${pressStart2P.variable} antialiased`}
       >
         {children}
       </body>

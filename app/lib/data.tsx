@@ -85,3 +85,38 @@ export const skillCategories = [
         color: "from-orange-500 to-red-500",
     },
 ];
+
+// Island data for the pirate voyage
+export interface IslandData {
+    id: string;
+    position: number;  // 0-100 percentage across the voyage
+    label: string;
+    emoji?: string;
+}
+
+export const islands: IslandData[] = [
+    {
+        id: 'home',
+        position: 10,
+        label: 'Home Port',
+        emoji: '🏠',
+    },
+    {
+        id: 'skills',
+        position: 38,
+        label: 'Skill Shores',
+        emoji: '⚔️',
+    },
+    {
+        id: 'projects',
+        position: 65,
+        label: 'Project Bay',
+        emoji: '🗺️',
+    },
+    {
+        id: 'contact',
+        position: 92,
+        label: 'Message Cove',
+        emoji: '📜',
+    },
+];
