@@ -3,43 +3,429 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #1a1c2c;
+  --foreground: #f4f4f4;
+  --ocean-deep: #1a1c2c;
+  --ocean-mid: #2c3e50;
+  --ocean-light: #3498db;
+  --ocean-surface: #5dade2;
+  --sand-light: #f5d6a5;
+  --sand-dark: #d4a574;
+  --wood-dark: #5d4037;
+  --wood-light: #8d6e63;
+  --gold: #ffd700;
+  --pirate-red: #e74c3c;
 }
 
 html, body {
-    color: var(--foreground);
-    background: var(--background);
-    overflow-y: auto;
-    font-family: Arial, Helvetica, sans-serif;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-@keyframes gradient {
-    0%,
-    100% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
-.animate-gradient {
-    background-size: 200% auto;
-    animation: gradient 3s ease infinite;
+  color: var(--foreground);
+  background: var(--ocean-deep);
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect x='14' y='0' width='4' height='4' fill='%23ffd700'/%3E%3Crect x='14' y='4' width='4' height='24' fill='%238d6e63'/%3E%3Crect x='10' y='28' width='12' height='4' fill='%238d6e63'/%3E%3C/svg%3E") 16 0, auto;
 }
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Pixel art rendering */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Pixel font utility */
+.font-pixel {
+  font-family: var(--font-pixel), 'Press Start 2P', cursive;
+  letter-spacing: 0.05em;
+}
+
+/* Pixel border style */
+.pixel-border {
+  border: 4px solid #333c57;
+  box-shadow:
+    4px 0 0 0 #333c57,
+    -4px 0 0 0 #333c57,
+    0 4px 0 0 #333c57,
+    0 -4px 0 0 #333c57,
+    4px 4px 0 0 #1a1c2c,
+    -4px 4px 0 0 #1a1c2c,
+    4px -4px 0 0 #1a1c2c,
+    -4px -4px 0 0 #1a1c2c;
+}
+
+/* Wave animations */
+@keyframes wave-slow {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-25px) translateY(-5px);
+  }
+  50% {
+    transform: translateX(-50px) translateY(0);
+  }
+  75% {
+    transform: translateX(-25px) translateY(5px);
+  }
+}
+
+@keyframes wave-medium {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-30px) translateY(-8px);
+  }
+  50% {
+    transform: translateX(-60px) translateY(0);
+  }
+  75% {
+    transform: translateX(-30px) translateY(8px);
+  }
+}
+
+@keyframes wave-fast {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-20px) translateY(-3px);
+  }
+  50% {
+    transform: translateX(-40px) translateY(0);
+  }
+  75% {
+    transform: translateX(-20px) translateY(3px);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes boat-bob {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  25% {
+    transform: translateY(-6px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(0deg);
+  }
+}
+
+@keyframes sail-flutter {
+  0%, 100% {
+    transform: skewX(-1deg) scaleX(1);
+  }
+  50% {
+    transform: skewX(1deg) scaleX(0.98);
+  }
+}
+
+@keyframes flag-wave {
+  0%, 100% {
+    transform: rotate(-5deg) scaleX(1);
+  }
+  25% {
+    transform: rotate(0deg) scaleX(0.95);
+  }
+  50% {
+    transform: rotate(5deg) scaleX(1);
+  }
+  75% {
+    transform: rotate(0deg) scaleX(0.95);
+  }
+}
+
+@keyframes palm-sway {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes seagull-fly {
+  0% {
+    transform: translateX(-100vw) translateY(0);
+  }
+  25% {
+    transform: translateX(-50vw) translateY(-20px);
+  }
+  50% {
+    transform: translateX(0) translateY(0);
+  }
+  75% {
+    transform: translateX(50vw) translateY(-15px);
+  }
+  100% {
+    transform: translateX(100vw) translateY(0);
+  }
+}
+
+@keyframes wing-tip-flap {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+@keyframes wing-base-flap {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes anchor-prompt {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+.animate-wave-slow {
+  animation: wave-slow 8s ease-in-out infinite;
+}
+
+.animate-wave-medium {
+  animation: wave-medium 6s ease-in-out infinite;
+}
+
+.animate-wave-fast {
+  animation: wave-fast 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-boat-bob {
+  animation: boat-bob 3s ease-in-out infinite;
+}
+
+.animate-sail-flutter {
+  animation: sail-flutter 4s ease-in-out infinite;
+}
+
+.animate-flag-wave {
+  animation: flag-wave 2s ease-in-out infinite;
+}
+
+.animate-palm-sway {
+  animation: palm-sway 4s ease-in-out infinite;
+}
+
+.animate-seagull {
+  animation: seagull-fly 20s linear infinite;
+  animation-fill-mode: backwards;
+}
+
+.animate-wing-tip {
+  animation: wing-tip-flap 0.6s ease-in-out infinite;
+}
+
+.animate-wing-base {
+  animation: wing-base-flap 0.6s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.animate-anchor-prompt {
+  animation: anchor-prompt 2s ease-in-out infinite;
+}
+
+/* Gradient animation for hero text */
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 3s ease infinite;
+}
+
+/* Ocean gradient layers */
+.ocean-gradient {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(93, 173, 226, 0.1) 30%,
+    rgba(52, 152, 219, 0.3) 60%,
+    rgba(44, 62, 80, 0.6) 80%,
+    rgba(26, 28, 44, 0.9) 100%
+  );
+}
+
+/* Pixel button style */
+.pixel-button {
+  background: var(--gold);
+  color: var(--ocean-deep);
+  border: none;
+  padding: 12px 24px;
+  font-family: var(--font-pixel), 'Press Start 2P', cursive;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+  box-shadow:
+    4px 4px 0 0 #b8860b,
+    -2px -2px 0 0 #ffe066 inset;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.pixel-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow:
+    6px 6px 0 0 #b8860b,
+    -2px -2px 0 0 #ffe066 inset;
+}
+
+.pixel-button:active {
+  transform: translate(2px, 2px);
+  box-shadow:
+    2px 2px 0 0 #b8860b,
+    -2px -2px 0 0 #ffe066 inset;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  backdrop-filter: blur(4px);
+  background: rgba(26, 28, 44, 0.85);
+}
+
+/* Treasure map styling */
+.treasure-map {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 10px,
+      rgba(139, 110, 99, 0.1) 10px,
+      rgba(139, 110, 99, 0.1) 11px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 10px,
+      rgba(139, 110, 99, 0.1) 10px,
+      rgba(139, 110, 99, 0.1) 11px
+    ),
+    linear-gradient(180deg, #d4a574 0%, #c4a574 50%, #d4a574 100%);
+  border: 4px solid #5d4037;
+}
+
+/* Star twinkle animation */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Splash screen fade-out */
+@keyframes splash-fade {
+  0%, 70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.splash-fade {
+  animation: splash-fade 2s ease-in-out forwards;
+}
+
+/* Anchor bob for splash screen */
+@keyframes anchor-bob {
+  0%, 100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(5deg);
+  }
+}
+
+.animate-anchor-bob {
+  animation: anchor-bob 1.2s ease-in-out infinite;
+}
+
+/* Modal animations (moved from inline styles) */
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-modal-fade-in {
+  animation: modal-fade-in 0.2s ease-out;
+}
+
+.animate-modal-scale-in {
+  animation: modal-scale-in 0.2s ease-out;
+}
+
+/* Selection color */
+::selection {
+  background: var(--gold);
+  color: var(--ocean-deep);
 }
